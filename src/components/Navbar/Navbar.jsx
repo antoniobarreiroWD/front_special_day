@@ -15,9 +15,9 @@ const Navbar = () => {
   const location = useLocation();
 
   let NAVIGATION_LINK = [
-    { link: "/guardhome", text: "Procedimientos" },
-    { link: "/pathology", text: "Patología" },
-    { link: "/finalreport", text: "Informe Final" },
+    { link: "/guardhome", text: "Servicios Contratados" },
+    { link: "/pathology", text: "Gastos" },
+    { link: "/finalreport", text: "Agenda" },
   ];
 
   if (user?.role === "Guard") {

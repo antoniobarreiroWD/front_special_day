@@ -51,7 +51,7 @@ function PathologyHome() {
   return (
     <PageWrapper>
       <Flex direction="column" align="center" mt={{ base: '3vh', md: '5vh' }} width="100%">
-        <Title>Departamento de Patología</Title>
+        <Title><h2>Gastos</h2></Title>
         <Input
           placeholder="Buscar procedimientos..."
           value={searchTerm}

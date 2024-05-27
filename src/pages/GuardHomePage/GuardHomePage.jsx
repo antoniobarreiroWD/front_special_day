@@ -7,6 +7,7 @@ import CustomTable from '../../components/CustomTable/CustomTable';
 import useSearchAndFilter from '../../hooks/useSearchAndFilter';
 import proceduresService from '../../services/procedures.service';
 
+
 function GuardHomePage() {
   const [procedures, setProcedures] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -39,26 +40,19 @@ function GuardHomePage() {
   };
 
   const columns = [
-    { title: 'Nombre', render: item => item.name, display: { base: 'none', md: 'table-cell' } },
-    { title: 'Primer apellido', render: item => item.firstName, display: { base: 'none', md: 'table-cell' } },
-    { title: 'Segundo apellido', render: item => item.lastName, display: { base: 'none', md: 'table-cell' } },
-    { title: 'Número procedimiento', render: item => item.procedureNumber, display: 'table-cell' },
-    { title: 'DNI', render: item => item.dni, display:  'table-cell'  },
-    { title: 'Ubicación', render: item => item.location && item.location.coordinates ? item.location.coordinates.join(", ") : 'No disponible', display: { base: 'none', md: 'table-cell' } },
-    { title: 'Violencia de Género', render: item => item.isGenderViolence ? 'Sí' : 'No', display: { base: 'none', md: 'table-cell' } },
-    { title: 'Violencia Doméstica', render: item => item.isDomesticViolence ? 'Sí' : 'No', display: { base: 'none', md: 'table-cell' } },
-    { title: 'Órgano Judicial', render: item => item.judicialBody, display: 'table-cell' },
-    { title: 'Procedimiento Completado', render: item => item.procedureCompleted ? 'Sí' : 'No', display: { base: 'none', md: 'table-cell' } },
-    { title: 'Creado', render: item => new Date(item.createdAt).toLocaleDateString(), display: { base: 'none', md: 'table-cell' } },
-    { title: 'Actualizado', render: item => new Date(item.updatedAt).toLocaleDateString(), display: { base: 'none', md: 'table-cell' } },
+    { title: 'Servicio', render: item => item.name, display: { base: 'none', md: 'table-cell' } },
+    { title: 'Empresa', render: item => item.firstName, display: { base: 'none', md: 'table-cell' } },
+    { title: 'Precio', render: item => item.procedureNumber, display: 'table-cell' },
+    { title: 'Pagado por', render: item => new Date(item.updatedAt).toLocaleDateString(), display: { base: 'none', md: 'table-cell' } },
+    { title: 'Contratado', render: item => new Date(item.createdAt).toLocaleDateString(), display: { base: 'none', md: 'table-cell' } },
   ];
 
   return (
     <PageWrapper>
       <Flex direction="column" align="center" mt={{ base: '3vh', md: '5vh' }} width="100%">
-        <Title>Procedimientos</Title>
+        <Title><h2>Servicios Contratados</h2></Title>
         <Input
-          placeholder="Buscar procedimientos..."
+          placeholder="Buscar servicios..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           my="4"

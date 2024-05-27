@@ -51,7 +51,7 @@ function FinalReport() {
   return (
     <PageWrapper>
       <Flex direction="column" align="center" mt={{ base: '3vh', md: '5vh' }} width="100%">
-        <Title>Informe Final</Title>
+        <Title>Agenda</Title>
         <Input
           placeholder="Buscar Informe Final..."
           value={searchTerm}
