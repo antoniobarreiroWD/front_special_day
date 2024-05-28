@@ -7,13 +7,17 @@ import AuthMiddleware from "../middlewares/AuthMiddleware"
 
 
 
+
+
 const Layout = () => {
   return (
    
       <AuthMiddleware>
+       
         <Navbar />
         <Outlet />
         <Footer />
+       
       </AuthMiddleware>
   
 

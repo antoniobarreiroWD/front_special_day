@@ -30,84 +30,79 @@ const Navbar = () => {
       padding={{ base: "12px", md: "34px 80px", xl: "20px 60px" }}
       alignItems="center"
       wrap="wrap"
-      bg={COLORS.PRIMARY}
       color="white"
       justifyContent={{ base: "space-between", xl: "center" }}
+      backgroundColor="pink.300"
+      boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)"
+      borderRadius="15px"
+      margin="10px"
     >
       <Flex align="center">
-      
-          <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Image
-              src={imgLogo}
-              alt="Libro de Autopsias"
-              boxSize={{ base: "100px", md: "100px", xl: "160px" }}
-              objectFit="cover"
-              borderRadius="full"
-            />
-          </Box>
-       
-      </Flex>
-      {user && (
-      <Flex
-        display={{ base: "flex", xl: "none" }}
-        alignItems="center"
-      >
-       
-        <Box onClick={onToggle} mr={4}>
-          <IconButton
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            variant="outline"
-            aria-label="Toggle Navigation"
-            colorScheme="white"
+        <Box display="flex" justifyContent="center" alignItems="center">
+          <Image
+            src={imgLogo}
+            alt="Corazón"
+            boxSize={{ base: "100px", md: "100px", xl: "160px" }}
+            objectFit="cover"
+            borderRadius="full"
+            filter="drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3))"
           />
         </Box>
-        
-        
-        
-          <AuthLink onClick={logout}>Logout</AuthLink>
-        
       </Flex>
+      {user && (
+        <Flex display={{ base: "flex", xl: "none" }} alignItems="center">
+          <Box onClick={onToggle} mr={4}>
+            <IconButton
+              icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+              variant="outline"
+              aria-label="Toggle Navigation"
+              colorScheme="pink"
+            />
+          </Box>
+          <AuthLink onClick={logout} color="pink.500">
+            Logout
+          </AuthLink>
+        </Flex>
       )}
 
-       {user && (
-      <Flex
-        display={{ base: isOpen ? "block" : "none", xl: "flex" }}
-        width={{ base: "full", xl: "auto" }}
-        flexGrow={1}
-        justifyContent={{ base: "flex-start", xl: "center" }}
-      >
+      {user && (
         <Flex
-          direction={{ base: "column", xl: "row" }}
+          display={{ base: isOpen ? "block" : "none", xl: "flex" }}
+          width={{ base: "full", xl: "auto" }}
+          flexGrow={1}
           justifyContent={{ base: "flex-start", xl: "center" }}
-          width="100%"
         >
-          {NAVIGATION_LINK.map(({ link, text }) => {
-            const isActiveLink = location.pathname === link;
-            return (
-              <NavigationLink
-                to={link}
-                key={text}
-                textDecoration={isActiveLink ? "underline" : "none"}
-                fontWeight={isActiveLink ? "bold" : "normal"}
-                backgroundColor={isActiveLink ? COLORS.ACCENT : "transparent"}
-                color={isActiveLink ? COLORS.WHITE : "white"}
-                borderRadius="5px"
-                padding="2"
-                marginX="2" 
-                marginY={{ base: 2, md: 1 }}
-              >
-                <Text fontSize={{ base: "sm", md: "md", xl: "lg" }}>
-                  {text}
-                </Text>
-              </NavigationLink>
-            );
-          })}
+          <Flex
+            direction={{ base: "column", xl: "row" }}
+            justifyContent={{ base: "flex-start", xl: "center" }}
+            width="100%"
+          >
+            {NAVIGATION_LINK.map(({ link, text }) => {
+              const isActiveLink = location.pathname === link;
+              return (
+                <NavigationLink
+                  to={link}
+                  key={text}
+                  textDecoration={isActiveLink ? "underline" : "none"}
+                  fontWeight={isActiveLink ? "bold" : "normal"}
+                  backgroundColor={isActiveLink ? "pink.500" : "transparent"}
+                  color={isActiveLink ? COLORS.WHITE : "white"}
+                  borderRadius="10px"
+                  padding="8px"
+                  marginX="2"
+                  marginY={{ base: 2, md: 1 }}
+                  _hover={{ backgroundColor: "pink.400", color: "white" }}
+                  transition="background-color 0.2s, transform 0.2s"
+                  _active={{ transform: "scale(0.95)" }}
+                >
+                  <Text fontSize={{ base: "sm", md: "md", xl: "lg" }}>
+                    {text}
+                  </Text>
+                </NavigationLink>
+              );
+            })}
+          </Flex>
         </Flex>
-      </Flex>
       )}
 
       <Flex
@@ -118,12 +113,14 @@ const Navbar = () => {
       >
         {user && (
           <>
-            <Box mr={{ xl: 10}}>
-              <Text>{user.name} {user.firstName} {user.lastName}</Text>
+            <Box textAlign="center" mr={{ xl: 10 }}>
+              <Text fontWeight="bold">{user.name} {user.firstName} {user.lastName}</Text>
               <Text>{user.email}</Text>
               <UserRole role={user.role} />
             </Box>
-            <AuthLink onClick={logout}>Logout</AuthLink>
+            <AuthLink onClick={logout} color="pink.500">
+              Logout
+            </AuthLink>
           </>
         )}
       </Flex>
