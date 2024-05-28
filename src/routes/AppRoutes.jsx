@@ -13,6 +13,7 @@ import ShowPathology from "../pages/ShowPathology/ShowPathology";
 import FinalReport from "../pages/FinalReportPage/FinalReportpage";
 import ShowFinalReport from "../pages/ShowFinalReport/ShowFinalReport";
 import EditFinalReport from "../pages/EditFinalReport/EditFinalReport";
+import EditProfile from "../pages/EditProfile/EditProfile";
 
 const AppRoutes = () => {
   const router = createBrowserRouter([
@@ -68,6 +69,12 @@ const AppRoutes = () => {
         {
           path: "profile",
           element: <ProfilePage />,
+        },
+        {
+          path:"edit-profile/:id",
+          
+          element:<EditProfile/>
+
         },
         {
           path: "*",
