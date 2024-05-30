@@ -14,6 +14,7 @@ import FinalReport from "../pages/FinalReportPage/FinalReportpage";
 import ShowFinalReport from "../pages/ShowFinalReport/ShowFinalReport";
 import EditFinalReport from "../pages/EditFinalReport/EditFinalReport";
 import EditProfile from "../pages/EditProfile/EditProfile";
+import CreateSpecialDayForm from "../pages/CreateSpecialDayForm/CreateSpecialDayForm";
 
 const AppRoutes = () => {
   const router = createBrowserRouter([
@@ -32,7 +33,7 @@ const AppRoutes = () => {
         },
         {
           path: "create",
-          element: <CreateProcedurePage />,
+          element: <CreateSpecialDayForm />,
         },
         {
           path: "showprocedure/:id",
