@@ -20,8 +20,9 @@ export const theme = extendTheme({
     accent: COLORS.ACCENT,
   },
   fonts: {
-    heading: "'Niconne', cursive",
-    body: "'Niconne', sans-serif",
+    heading: "'Pacifico', cursive",
+    body: "'Pacifico', sans-serif",
+    resalt: "'Niconne', cursive"
   },
   styles: {
     global: {

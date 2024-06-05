@@ -3,18 +3,13 @@ import Layout from "../layouts/Layout";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
-import GuardHomePage from "../pages/GuardHomePage/GuardHomePage";
-import CreateProcedurePage from "../pages/CreateProcedurePage/CreateProcedurePage";
-import EditProcedure from "../pages/EditProcedure/EditProcedure";
-import PathologyHomePage from "../pages/PathologyHomePage/PathologyHomePage";
-import EditPathology from "../pages/EditPathology/EditPathology";
-import ShowProcedure from "../pages/ShowProcedure/ShowProcedure";
-import ShowPathology from "../pages/ShowPathology/ShowPathology";
-import FinalReport from "../pages/FinalReportPage/FinalReportpage";
-import ShowFinalReport from "../pages/ShowFinalReport/ShowFinalReport";
-import EditFinalReport from "../pages/EditFinalReport/EditFinalReport";
+import SpecialDayHomePage from "../pages/ServicesPage/ServicesPage";
+import EditSpecialDay from "../pages/EditSpecialDay/EditSpecialDay";
 import EditProfile from "../pages/EditProfile/EditProfile";
 import CreateSpecialDayForm from "../pages/CreateSpecialDayForm/CreateSpecialDayForm";
+import ServicesPage from "../pages/ServicesPage/ServicesPage";
+import UserSpecialDay from "../pages/UserSpecialDay/UserSpecialDay";
+import GuestsPage from "../pages/GuestsPage/GuestsPage";
 
 const AppRoutes = () => {
   const router = createBrowserRouter([
@@ -25,47 +20,27 @@ const AppRoutes = () => {
       children: [
         {
           index: true,
-          element: <GuardHomePage />,
+          element: <SpecialDayHomePage />,
         },
         {
-          path: "guardhome",
-          element: <GuardHomePage />,
+          path: "guests",
+          element: <GuestsPage />,
+        },
+        {
+          path: "services",
+          element: <ServicesPage />,
         },
         {
           path: "create",
           element: <CreateSpecialDayForm />,
         },
         {
-          path: "showprocedure/:id",
-          element: <ShowProcedure />,
+          path: "userspecialday/:id",
+          element: <UserSpecialDay />,
         },
         {
-          path: "editprocedure/:id",
-          element: <EditProcedure />,
-        },
-        {
-          path: "pathology",
-          element: <PathologyHomePage />,
-        },
-        {
-          path: "showpathology/:id",
-          element: <ShowPathology />,
-        },
-        {
-          path: "editPathology/:id",
-          element: <EditPathology />,
-        },
-        {
-          path:"finalreport",
-          element: <FinalReport />,
-        },
-        {
-          path: "showfinalReport/:id",
-          element: <ShowFinalReport />,
-        },
-        {
-          path: "editfinalReport/:id",
-          element: <EditFinalReport />,
+          path: "editspecialday/:id",
+          element: <EditSpecialDay />,
         },
         {
           path: "profile",

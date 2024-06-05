@@ -11,17 +11,20 @@ import imgLogo from "../../assets/LogoApp.jpg";
 
 const Navbar = () => {
   const { isOpen, onToggle } = useDisclosure();
-  const { user, logout } = useContext(UserContext);
+  const { user, specialDay, logout } = useContext(UserContext);
   const location = useLocation();
 
   let NAVIGATION_LINK = [
-    { link: "/guardhome", text: "Servicios Contratados" },
-    { link: "/pathology", text: "Gastos" },
-    { link: "/finalreport", text: "Agenda" },
+    { link: specialDay ? `/userspecialday/${specialDay._id}` : "/create", text: "Mi Special Day" },
+    { link: "/services", text: "Servicios" },
+    { link: "/guests", text: "Invitados" },
+    { link: "/expense", text: "Gastos" },
+    { link: "/schedule", text: "Agenda" },
+    { link: "/profile", text: "Perfil" },
   ];
 
   if (user?.role === "Guard") {
-    NAVIGATION_LINK = [{ link: "/create", text: "Nuevo Procedimiento" }, ...NAVIGATION_LINK];
+    NAVIGATION_LINK = [{ link: "/create", text: "Crear mi Special Day" }, ...NAVIGATION_LINK];
   }
 
   return (

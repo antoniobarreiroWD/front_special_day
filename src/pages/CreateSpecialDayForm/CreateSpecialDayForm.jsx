@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import {
   Box,
@@ -11,6 +10,7 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import SpecialDayService from '../../services/specialDay.service';
+import PageWrapper from '../../components/PageWrapper/PageWrapper';
 
 const CreateSpecialDayForm = () => {
   const toast = useToast();
@@ -63,11 +63,12 @@ const CreateSpecialDayForm = () => {
       guests: guests.split(',').map((guest) => ({
         name: guest.trim(),
         companion: '',
-        gift: '',
+        gift: 1,
         table: 1,
       })),
       date: rest.date,
     };
+
     try {
       const response = await SpecialDayService.createSpecialDay(data);
       toast({
@@ -91,59 +92,61 @@ const CreateSpecialDayForm = () => {
   };
 
   return (
+    <PageWrapper>
     <Box p={5} shadow='md' borderWidth='1px' borderRadius='md'>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4}>
           <FormControl id='brideName' isRequired>
-            <FormLabel>Bride's Name</FormLabel>
+            <FormLabel>Nombre Novia</FormLabel>
             <Input name='brideName' value={formData.brideName} onChange={handleChange} />
           </FormControl>
           <FormControl id='brideFirstName' isRequired>
-            <FormLabel>Bride's First Name</FormLabel>
+            <FormLabel>Primer Apellido Novia</FormLabel>
             <Input name='brideFirstName' value={formData.brideFirstName} onChange={handleChange} />
           </FormControl>
           <FormControl id='brideLastName' isRequired>
-            <FormLabel>Bride's Last Name</FormLabel>
+            <FormLabel>Segundo Apellido Novia</FormLabel>
             <Input name='brideLastName' value={formData.brideLastName} onChange={handleChange} />
           </FormControl>
           <FormControl id='brideEmail' isRequired>
-            <FormLabel>Bride's Email</FormLabel>
+            <FormLabel>Email Novia</FormLabel>
             <Input name='brideEmail' value={formData.brideEmail} onChange={handleChange} />
           </FormControl>
           <FormControl id='groomName' isRequired>
-            <FormLabel>Groom's Name</FormLabel>
+            <FormLabel>Nombre Novio</FormLabel>
             <Input name='groomName' value={formData.groomName} onChange={handleChange} />
           </FormControl>
           <FormControl id='groomFirstName' isRequired>
-            <FormLabel>Groom's First Name</FormLabel>
+            <FormLabel>Primer Apellido Novio</FormLabel>
             <Input name='groomFirstName' value={formData.groomFirstName} onChange={handleChange} />
           </FormControl>
           <FormControl id='groomLastName' isRequired>
-            <FormLabel>Groom's Last Name</FormLabel>
+            <FormLabel>Segundo Apellido Novio</FormLabel>
             <Input name='groomLastName' value={formData.groomLastName} onChange={handleChange} />
           </FormControl>
           <FormControl id='groomEmail' isRequired>
-            <FormLabel>Groom's Email</FormLabel>
+            <FormLabel>Email Novio</FormLabel>
             <Input name='groomEmail' value={formData.groomEmail} onChange={handleChange} />
           </FormControl>
           <FormControl id='date' isRequired>
-            <FormLabel>Date</FormLabel>
+            <FormLabel>Fecha</FormLabel>
             <Input type='date' name='date' value={formData.date} onChange={handleChange} />
           </FormControl>
           <FormControl id='services'>
-            <FormLabel>Services (comma-separated)</FormLabel>
+            <FormLabel>Servicios (comma-separated)</FormLabel>
             <Textarea name='services' value={formData.services} onChange={handleChange} />
           </FormControl>
           <FormControl id='guests'>
-            <FormLabel>Guests (comma-separated)</FormLabel>
+            <FormLabel>Invitados (comma-separated)</FormLabel>
             <Textarea name='guests' value={formData.guests} onChange={handleChange} />
           </FormControl>
           <Button type='submit' colorScheme='teal'>
-            Create SpecialDay
+            Crear SpecialDay
           </Button>
         </VStack>
       </form>
     </Box>
+    </PageWrapper>
   );
 };
 
