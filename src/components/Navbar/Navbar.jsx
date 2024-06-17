@@ -18,7 +18,7 @@ const Navbar = () => {
     { link: specialDay ? `/userspecialday/${specialDay._id}` : "/create", text: "Mi Special Day" },
     { link: "/services", text: "Servicios" },
     { link: "/guests", text: "Invitados" },
-    { link: "/expense", text: "Gastos" },
+    { link: "/financial", text: "Balance" },
     { link: "/schedule", text: "Agenda" },
     { link: "/profile", text: "Perfil" },
   ];

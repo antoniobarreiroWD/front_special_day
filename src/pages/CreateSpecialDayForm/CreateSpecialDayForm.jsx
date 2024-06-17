@@ -56,7 +56,7 @@ const CreateSpecialDayForm = () => {
       },
       services: services.split(',').map((service) => ({
         type: service.trim(),
-        price: 0,
+        price: '',
         image: '',
         status: true,
       })),

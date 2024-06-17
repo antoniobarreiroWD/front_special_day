@@ -1,4 +1,4 @@
-// services/specialDay.service.js
+
 import AxiosConfig from "./axios";
 
 class SpecialDayService extends AxiosConfig {

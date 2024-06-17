@@ -4,12 +4,12 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import SpecialDayHomePage from "../pages/ServicesPage/ServicesPage";
-import EditSpecialDay from "../pages/EditSpecialDay/EditSpecialDay";
 import EditProfile from "../pages/EditProfile/EditProfile";
 import CreateSpecialDayForm from "../pages/CreateSpecialDayForm/CreateSpecialDayForm";
 import ServicesPage from "../pages/ServicesPage/ServicesPage";
 import UserSpecialDay from "../pages/UserSpecialDay/UserSpecialDay";
 import GuestsPage from "../pages/GuestsPage/GuestsPage";
+import FinancialPage from "../pages/FinancialPage/FinancialPage";
 
 const AppRoutes = () => {
   const router = createBrowserRouter([
@@ -38,13 +38,14 @@ const AppRoutes = () => {
           path: "userspecialday/:id",
           element: <UserSpecialDay />,
         },
-        {
-          path: "editspecialday/:id",
-          element: <EditSpecialDay />,
-        },
+       
         {
           path: "profile",
           element: <ProfilePage />,
+        },
+        {
+          path: "financial",
+          element: <FinancialPage />,
         },
         {
           path:"edit-profile/:id",

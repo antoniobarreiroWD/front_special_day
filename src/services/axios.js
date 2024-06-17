@@ -3,7 +3,7 @@ import axios from 'axios';
 class AxiosConfig {
   constructor(apiPath) {
     this.axios = axios.create({
-      baseURL: `http://localhost:3001/api/${apiPath}`,
+      baseURL: `https://server-special-day.onrender.com/api/${apiPath}`,
     });
 
     
